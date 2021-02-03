@@ -23,6 +23,7 @@ public class Pin : MonoBehaviour
             if(!hasFallen){
             gameManager.fallenPin();
             hasFallen=true;
+            gameManager.pinHasFallen.Invoke();
             }
         }
 
