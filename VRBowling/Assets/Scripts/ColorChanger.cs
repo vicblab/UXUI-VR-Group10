@@ -14,7 +14,8 @@ public class ColorChanger : MonoBehaviour
 
     private void Start()
     {
-        ogPos = transform.position;
+        VRButtonEvents.resetBalls += ResetPos;
+        ogPos = transform.parent.position;
         mat = outlineRenderer.material;
         trail = GetComponent<TrailRenderer>();
         rb = GetComponent<Rigidbody>();
@@ -24,10 +25,19 @@ public class ColorChanger : MonoBehaviour
         //rb = GetComponent<Rigidbody>();
         SetColors(0f);
     }
+    private void OnDestroy()
+    {
+        VRButtonEvents.resetBalls -= ResetPos;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
-            transform.position = ogPos;
+            ResetPos();
+    }
+    public void ResetPos()
+    {
+        transform.parent.position = ogPos;
+        rb.velocity = Vector3.zero;
     }
     private void FixedUpdate()
     {
