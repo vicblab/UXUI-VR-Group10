@@ -6,7 +6,8 @@ public class ColorChanger : MonoBehaviour
 {
     private Material mat;
     private TrailRenderer trail;
-    private Rigidbody rb;
+    public Renderer outlineRenderer;
+    public Rigidbody rb;
     [SerializeField] Gradient gradient;
 
     private Vector3 ogPos;
@@ -14,9 +15,13 @@ public class ColorChanger : MonoBehaviour
     private void Start()
     {
         ogPos = transform.position;
-        mat = GetComponent<Renderer>().material;
+        mat = outlineRenderer.material;
         trail = GetComponent<TrailRenderer>();
         rb = GetComponent<Rigidbody>();
+        if (!rb)
+            rb = GetComponentInParent<Rigidbody>();
+
+        //rb = GetComponent<Rigidbody>();
         SetColors(0f);
     }
     private void Update()
@@ -26,12 +31,12 @@ public class ColorChanger : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        SetColors(rb.velocity.magnitude / 20f);
+        SetColors(rb.velocity.magnitude / 10f);
     }
     private void SetColors(float value)
     {
         Color color = gradient.Evaluate(value);
-        mat.SetColor("_OtlColor", color);
+        mat.SetColor("g_vOutlineColor", color);
         trail.material.color = color;
 
     }
