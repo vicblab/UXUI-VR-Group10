@@ -13,7 +13,6 @@ public class Pin : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        ogPos = transform.parent.position;
         rb = GetComponentInParent<Rigidbody>();
     }
 

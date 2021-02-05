@@ -31,4 +31,18 @@ public class BowlingBall : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
+    public void ResetManager()
+    {
+        GameManager manager = FindObjectOfType<GameManager>();
+        if (manager.currentPins)
+        {
+            Destroy(manager.currentPins.gameObject);
+        }
+        StartCoroutine(ResetDelay(manager));
+    }
+    public IEnumerator ResetDelay(GameManager manager)
+    {
+        yield return new WaitForEndOfFrame();
+        manager.Restart();
+    }
 }

@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         //score1 = 0;
         //score2 = 0;
         score = 0;
+        ResetPins?.Invoke();
     }
 
 
@@ -74,9 +75,12 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        Destroy(currentPins.gameObject);
+        if (currentPins)
+        {
+            Destroy(currentPins.gameObject);
+        }
         Start();
-        ResetPins?.Invoke();
+
     }
 
 
