@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
         GameManager.ResetPins += UpdateScore;
         GameManager.ResetPins += SpawnScoreText;
         ActivateTutorial(0);
+        UpdateScore();
     }
     private void Update()
     {
