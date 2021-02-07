@@ -6,9 +6,9 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
 
-    
+
     public static GameManager theGameManager;
-    
+
     [SerializeField] private int totalPins = 10;
     [SerializeField] private int fallenPins = 0;
     [SerializeField] private int totalBalls = 5;
@@ -19,14 +19,14 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private int score2 = 0;
     [SerializeField] private int score = 0;
 
-    
-
-
     //Events
     public UnityEvent strikeEvent = new UnityEvent();
     public UnityEvent spareEvent = new UnityEvent();
     public UnityEvent pinHasFallen = new UnityEvent();
 
+    public static UnityAction ResetPins;
+    public Transform currentPins;
+    public GameObject pinsPrefab;
 
     public int TotalBalls { get => totalBalls; set => totalBalls = value; }
     public int PlayedBalls { get => playedBalls; set => playedBalls = value; }
@@ -34,21 +34,23 @@ public class GameManager : MonoBehaviour
     public int FallenPins { get => fallenPins; set => fallenPins = value; }
     public int Score { get => score; set => score = value; }
 
+    // We make sure that there is only one instance of the Game Manager
 
-// We make sure that there is only one instance of the Game Manager
-
-    void Awake() {
-        if (!theGameManager) {
+    void Awake()
+    {
+        if (!theGameManager)
+        {
             theGameManager = this;
             return;
         }
 
         Destroy(this.gameObject);
-        
+
     }
 
     void Start()
     {
+        currentPins = Instantiate(pinsPrefab).transform;
         //initialization
         totalPins = 10;
         fallenPins = 0;
@@ -58,24 +60,35 @@ public class GameManager : MonoBehaviour
         //score0 = 0;
         //score1 = 0;
         //score2 = 0;
+        ResetPins?.Invoke();
         score = 0;
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.K))
+            Restart();
     }
 
-    public void Restart() {
-        this.Start();
-        
+    public void Restart()
+    {
+        if (currentPins)
+        {
+            Destroy(currentPins.gameObject);
+        }
+        Score = fallenPins;
+        Start();
+
     }
 
 
-    public void fallenPin(){
+    public void fallenPin()
+    {
         fallenPins++;
         score++;
+        pinHasFallen?.Invoke();
     }
 
 }

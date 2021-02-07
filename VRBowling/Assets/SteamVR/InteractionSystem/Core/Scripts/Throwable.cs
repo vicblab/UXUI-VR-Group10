@@ -86,7 +86,7 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         protected virtual void OnHandHoverBegin( Hand hand )
 		{
-			bool showHint = false;
+			bool showHint = true;
 
             // "Catch" the throwable by holding down the interaction button instead of pressing it.
             // Only do this if the throwable is moving faster than the prescribed threshold speed,

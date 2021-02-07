@@ -5,14 +5,15 @@ using UnityEngine;
 public class Pin : MonoBehaviour
 {
 
-    private bool hasFallen=false;
+    private bool hasFallen = false;
     private GameManager gameManager;
+    private Vector3 ogPos;
+    private Rigidbody rb;
 
-
-    void Start(){
-
-       gameManager = FindObjectOfType<GameManager>();
-
+    void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        rb = GetComponentInParent<Rigidbody>();
     }
 
     // Start is called before the first frame update
@@ -20,12 +21,15 @@ public class Pin : MonoBehaviour
     {
         if (other.CompareTag("Floor"))
         {
-            if(!hasFallen){
-            gameManager.fallenPin();
-            hasFallen=true;
-            gameManager.pinHasFallen.Invoke();
+            Debug.Log("floor");
+            if (!hasFallen)
+            {
+                gameManager.fallenPin();
+                rb.mass = 0.1f;
+                hasFallen = true;
             }
         }
 
     }
+
 }
