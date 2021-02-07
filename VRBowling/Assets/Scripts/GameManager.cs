@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     public int FallenPins { get => fallenPins; set => fallenPins = value; }
     public int Score { get => score; set => score = value; }
 
-
     // We make sure that there is only one instance of the Game Manager
 
     void Awake()
@@ -61,8 +60,8 @@ public class GameManager : MonoBehaviour
         //score0 = 0;
         //score1 = 0;
         //score2 = 0;
-        score = 0;
         ResetPins?.Invoke();
+        score = 0;
     }
 
 
@@ -79,6 +78,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(currentPins.gameObject);
         }
+        Score = fallenPins;
         Start();
 
     }
