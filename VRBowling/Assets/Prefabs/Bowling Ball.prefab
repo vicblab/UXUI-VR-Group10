@@ -12,6 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a950fcf3fa7a8e4f9a5bd8b6af5ca0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4386630246406542465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680106014180421129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57f88eca78904e42a35acba961aad6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptUpdateRate: 0.1
+  interactablePrompts:
+  - promptCondition: 3
+    promptAction:
+      actionPath: /actions/default/in/GrabGrip
+      needsReinit: 0
+    promptInstructions: 'Throw and release the trigger to bowl. '
+  - promptCondition: 1
+    promptAction:
+      actionPath: 
+      needsReinit: 0
+    promptInstructions: Pick up a bowling ball by pressing the trigger.
 --- !u!1001 &3679952623880165539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,6 +301,11 @@ PrefabInstance:
     - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
         type: 3}
       propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onDetachedFromHand.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
@@ -308,6 +337,101 @@ PrefabInstance:
         type: 3}
       propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ControllerPrompts, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4386630246406542465}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DisableAllPrompts
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ControllerPrompts, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 4386630246406542465}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ActivatePrompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onAttachedToHand.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onDetachedFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onDetachedFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onDetachedFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4386630246406542465}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onDetachedFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControllerPrompts, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onDetachedFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivatePrompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onDetachedFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013822852628, guid: e0b086fbb874df143b6ac8f53cea5424,
+        type: 3}
+      propertyPath: onDetachedFromHand.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0b086fbb874df143b6ac8f53cea5424, type: 3}
