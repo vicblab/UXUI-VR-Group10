@@ -159,6 +159,12 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
       value: 0.20455863
       objectReference: {fileID: 0}
+    - target: {fileID: 6372662768109220382, guid: a655da6853fdc5e429ae8d2ec39e9a98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6922793697723135513, guid: 87c22c115df61d04981acae17250f420,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 6372662768109220378, guid: a655da6853fdc5e429ae8d2ec39e9a98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a655da6853fdc5e429ae8d2ec39e9a98, type: 3}
