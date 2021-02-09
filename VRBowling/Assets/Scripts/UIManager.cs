@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Valve.VR.InteractionSystem;
+using UnityEngine.Events;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject[] tutorialObjects;
     private int tutorialPhase = 0;
     private bool tutorialDone;
+    public UnityEvent onTutorialDone;
 
     private void Start()
     {
@@ -67,7 +69,10 @@ public class UIManager : MonoBehaviour
 
             tutorialPhase = i;
             if (i >= tutorialObjects.Length)
+            {
                 tutorialDone = true;
+                onTutorialDone?.Invoke();
+            }
             if (!tutorialDone)
             {
                 tutorialObjects[i].SetActive(true);
